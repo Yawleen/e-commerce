@@ -26,7 +26,7 @@ export default function Carousel({ products }: CarouselProps) {
     <div className="relative h-60 sm:h-80">
       <div className="absolute left-[50%] top-[50%] -translate-[50%] text-center z-1">
         <p className="text-lg sm:text-xl font-bold drop-shadow-[2px_1px_0_rgba(255,255,255,0.8)]">
-          {currentProduct.name}
+          {currentProduct?.name}
         </p>
         {price && price.unit_amount && (
           <p className="font-semibold drop-shadow-[2px_1px_0_rgba(255,255,255,0.8)]">
@@ -35,8 +35,8 @@ export default function Carousel({ products }: CarouselProps) {
         )}
       </div>
       <Image
-        src={currentProduct.images[0]}
-        alt={currentProduct.name}
+        src={currentProduct?.images[0]}
+        alt={currentProduct?.name}
         fill
         objectFit="contain"
         className="transition-opacity duration-500 ease-in-out"
