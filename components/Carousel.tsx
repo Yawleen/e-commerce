@@ -38,7 +38,8 @@ export default function Carousel({ products }: CarouselProps) {
         src={currentProduct?.images[0]}
         alt={currentProduct?.name}
         fill
-        objectFit="contain"
+        style={{ objectFit: "contain" }}
+        sizes="100%"
         className="transition-opacity duration-500 ease-in-out"
       />
     </div>
