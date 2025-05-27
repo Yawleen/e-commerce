@@ -57,11 +57,11 @@ export default function ProductsList({ products }: ProductsListProps) {
         </div>
       </div>
       {filteredProducts.length > 0 ? (
-        filteredProducts.map((product) => (
-          <div className="grid grid-cols-1 gap-2 md:grid-cols-2 lg:grid-cols-3 lg:gap-4">
+        <div className="grid grid-cols-1 gap-2 md:grid-cols-2 lg:grid-cols-3 lg:gap-4">
+          {filteredProducts.map((product) => (
             <ProductCard key={product.id} product={product} />
-          </div>
-        ))
+          ))}
+        </div>
       ) : (
         <p className="min-h-60 sm:min-h-80 text-center font-bold text-lg sm:text-xl">
           Aucun résultat pour "{searchTerm}".
