@@ -11,7 +11,7 @@ export default function ProductCard({ product }: ProductCardProps) {
   const price = product.default_price as Stripe.Price;
 
   return (
-    <Link href={`${PRODUCTS_ROUTE}/${product.id.split("-")[1]}`}>
+    <Link href={`${PRODUCTS_ROUTE}/${product.id}`}>
       <div className="card bg-white shadow-lg border-gray-300">
         <figure className="relative w-full h-80">
           <Image
@@ -21,7 +21,8 @@ export default function ProductCard({ product }: ProductCardProps) {
             }
             alt={product.name}
             fill
-            objectFit="cover"
+            style={{ objectFit: "cover" }}
+            sizes="100%"
             className="transition-opacity duration-500 ease-in-out"
           />
         </figure>
@@ -35,7 +36,7 @@ export default function ProductCard({ product }: ProductCardProps) {
           {product.description && (
             <p className="line-clamp-3">{product.description}</p>
           )}
-          <div className="card-actions justify-end">Acheter</div>
+          <button className="btn self-end mt-2">Acheter</button>
         </div>
       </div>
     </Link>
