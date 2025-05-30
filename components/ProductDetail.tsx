@@ -1,5 +1,8 @@
+"use client";
+
 import Image from "next/image";
 import Stripe from "stripe";
+import { useCartStore } from "@/store/cart-store";
 
 interface IProductDetailProps {
   product: Stripe.Product;
@@ -7,6 +10,22 @@ interface IProductDetailProps {
 
 export default function ProductDetail({ product }: IProductDetailProps) {
   const price = product.default_price as Stripe.Price;
+  const { items, addItem, removeItem } = useCartStore();
+  const cartItem = items.find((item) => item.id === product.id);
+  const quantity = cartItem ? cartItem.quantity : 0;
+
+  const onAddItem = () =>
+    addItem({
+      id: product.id,
+      name: product.name,
+      price: price.unit_amount as number,
+      imageUrl:
+        product.images[0] ??
+        "https://images.pexels.com/photos/28216688/pexels-photo-28216688/free-photo-of-autumn-camping.png",
+      quantity: 1,
+    });
+
+  const onRemoveItem = () => removeItem(product.id);
 
   return (
     <div className="flex flex-wrap items-center justify-center gap-1 px-4 w-full max-w-4xl mx-auto">
@@ -36,9 +55,15 @@ export default function ProductDetail({ product }: IProductDetailProps) {
         )}
 
         <div className="flex items-center mt-4 gap-3">
-          <button className="btn btn-sm">-</button>
-          <span className="text-sm font-semibold">0</span>
-          <button className="btn btn-sm">+</button>
+          {cartItem?.quantity! > 0 && (
+            <button onClick={onRemoveItem} className="btn btn-sm">
+              -
+            </button>
+          )}
+          <span className="text-sm font-semibold">{quantity}</span>
+          <button onClick={onAddItem} className="btn btn-sm">
+            +
+          </button>
         </div>
       </div>
     </div>
