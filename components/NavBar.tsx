@@ -177,13 +177,6 @@ export default function NavBar() {
                   Voir panier ({cartCount})
                 </Link>
 
-                {/* <a
-                  href="#"
-                  className="block rounded-sm bg-gray-700 px-5 py-3 text-sm text-gray-100 transition hover:bg-gray-600"
-                >
-                  Checkout
-                </a> */}
-
                 <p
                   onClick={closeCart}
                   className="text-sm text-gray-500 underline underline-offset-4 transition hover:text-gray-600 cursor-pointer"
