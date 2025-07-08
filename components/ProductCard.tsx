@@ -12,7 +12,7 @@ export default function ProductCard({ product }: ProductCardProps) {
 
   return (
     <Link href={`${PRODUCTS_ROUTE}/${product.id}`}>
-      <div className="card bg-white shadow-lg border-gray-300">
+      <div className="h-full card bg-white shadow-lg border-gray-300">
         <figure className="relative w-full h-80">
           <Image
             src={
