@@ -131,3 +131,12 @@
     @apply bg-background text-foreground;
   }
 }
+
+a {
+  text-decoration: none;
+  color: var(--primary);
+}
+
+a:active {
+  background: transparent;
+}
