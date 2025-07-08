@@ -24,7 +24,7 @@ export default async function Home() {
             </p>
 
             <Link
-              className="btn bg-secondary sm:btn-lg rounded transition-colors hover:bg-secondary/70"
+              className="btn text-white bg-secondary sm:btn-lg rounded transition-colors hover:bg-secondary/70"
               href={PRODUCTS_ROUTE}
             >
               Découvrir
