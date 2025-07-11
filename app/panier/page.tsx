@@ -1,6 +1,7 @@
 "use client";
 
 import { useCartStore } from "@/store/cart-store";
+import { checkoutAction } from "./checkout-action";
 
 export default function CheckoutPage() {
   const { items, removeItem, addItem, clearCart } = useCartStore();
@@ -53,7 +54,7 @@ export default function CheckoutPage() {
           Total : {(total / 100).toFixed(2)} €
         </div>
       </div>
-      <form className="flex flex-col max-w-md mx-auto">
+      <form className="flex flex-col max-w-md mx-auto" action={checkoutAction}>
         <input type="hidden" name="items" value={JSON.stringify(items)} />
         <button type="submit" className="btn mb-3">
           Procéder au paiement
