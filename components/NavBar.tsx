@@ -5,6 +5,7 @@ import { HOME_ROUTE, PRODUCTS_ROUTE, CHECKOUT_ROUTE } from "@/routes";
 import NavLink from "./NavLink";
 import { useCartStore } from "@/store/cart-store";
 import { useState, useEffect, useRef } from "react";
+import Image from "next/image";
 
 export default function NavBar() {
   const { items } = useCartStore();
@@ -138,12 +139,16 @@ export default function NavBar() {
               <ul className="flex flex-col gap-x-4 space-y-4">
                 {items.map((item) => (
                   <li key={item.id} className="flex gap-4">
-                    <img
+                    <Image
                       src={
-                        item.imageUrl ??
-                        "https://images.pexels.com/photos/28216688/pexels-photo-28216688/free-photo-of-autumn-camping.png"
+                        item.imageUrl
+                          ? item.imageUrl
+                          : "https://images.pexels.com/photos/28216688/pexels-photo-28216688/free-photo-of-autumn-camping.png"
                       }
                       alt={item.name}
+                      width={64}
+                      height={64}
+                      objectFit="cover"
                       className="size-16 rounded-sm object-cover"
                     />
 

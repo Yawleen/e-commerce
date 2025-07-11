@@ -64,7 +64,7 @@ export default function ProductsList({ products }: ProductsListProps) {
         </div>
       ) : (
         <p className="min-h-60 sm:min-h-80 text-center font-bold text-lg sm:text-xl">
-          Aucun résultat pour "{searchTerm}".
+          Aucun résultat pour &quot;{searchTerm}&quot;.
         </p>
       )}
     </>

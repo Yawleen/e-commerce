@@ -19,9 +19,9 @@ export default function ProductDetail({ product }: IProductDetailProps) {
       id: product.id,
       name: product.name,
       price: price.unit_amount as number,
-      imageUrl:
-        product.images[0] ??
-        "https://images.pexels.com/photos/28216688/pexels-photo-28216688/free-photo-of-autumn-camping.png",
+      imageUrl: product.images[0]
+        ? product.images[0]
+        : "https://images.pexels.com/photos/28216688/pexels-photo-28216688/free-photo-of-autumn-camping.png",
       quantity: 1,
     });
 
@@ -32,8 +32,9 @@ export default function ProductDetail({ product }: IProductDetailProps) {
       <div className="relative min-w-[250px] w-[30%] h-100">
         <Image
           src={
-            product.images[0] ??
-            "https://images.pexels.com/photos/28216688/pexels-photo-28216688/free-photo-of-autumn-camping.png"
+            product.images[0]
+              ? product.images[0]
+              : "https://images.pexels.com/photos/28216688/pexels-photo-28216688/free-photo-of-autumn-camping.png"
           }
           alt={product.name}
           fill
