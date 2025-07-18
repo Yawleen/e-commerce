@@ -56,7 +56,7 @@ export default function ProductDetail({ product }: IProductDetailProps) {
         )}
 
         <div className="flex items-center mt-4 gap-3">
-          {cartItem?.quantity! > 0 && (
+          {cartItem && cartItem.quantity! > 0 && (
             <button onClick={onRemoveItem} className="btn btn-sm">
               -
             </button>
